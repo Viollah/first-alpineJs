@@ -1,0 +1,24 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: aqua;
+}
+
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+button {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #F1C0E8;
+    margin: 15px;
+    padding: 15px;
+  
+    
+}
+
+input {
+    background-color: #F1C0E8;
+    margin: 20px;
+    padding: 20px;
+}
+
