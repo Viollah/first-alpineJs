@@ -11,7 +11,7 @@
 <body>
 
     <div class="container">
-
+         <h1>AlpineJS</h1>
      <div class="row">
         <div class="col-6">
 
@@ -25,7 +25,7 @@
     
         <div class="col-6">
             <h3>Create a Counter Component</h3>
-            <div x-data="{ count: 1 }">
+            <div x-data="{ count: 0 }">
             <p x-text="count"></p>
             <button @click="count++">Count Up</button>
             <button @click="count--">Count Down</button>
@@ -39,13 +39,14 @@
        <div class="col-6">
 
         <h3>AlpineJS x-init</h3>
-        <div x-data="{ countdown: 60 }"
-         x-init="setInterval(function(){
-                    countdown--;
-                 }, 1000);
-                 ">
+        <div x-data="{ countdown: 60, counting: false}"
+        x-init="setInterval(() => {if(countdown > 0 && counting) {countdown--;}}, 1000)">
         <h1 x-text="countdown"></h1>
-        </div>
+        <button @click="counting=!counting"
+          x-text="counting ? 'Stop' : 'Start'" ></button>
+        <button @click="countdown=60">Reset</button>
+      </div>
+       
 
        </div>
 
@@ -90,15 +91,18 @@
 
     <div class="col-6">
         <h3>AlpineJS x-if</h3>
-    <div x-data="{ socks: 'blue' }">
-        <template x-if="socks=='blue'">
-            <p>My socks are blue</p>
-        </template>
-        <template x-if="socks=='green'">
-            <p>My socks are green</p>
-        </template>
-        <button @click="socks = 'green'">Change Sox</button>
-    </div>
+        <div x-data="{socks: 'blue'}">
+            <template x-if="socks=='blue'">
+              <p style="color: blue">My socks are blue</p>
+            </template>
+            <template x-if="socks=='green'">
+              <p style="color: green">My socks are green</p>
+            </template>
+            <button @click="socks = socks=='blue' ? 'green' : 'blue'">
+              Change Sox
+            </button>
+          </div>
+   
     </div>
     </div>
 
@@ -117,13 +121,7 @@
     </div>
 
     </div>
-
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+ <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
 
 </body>
 </html>
